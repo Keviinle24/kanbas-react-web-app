@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Labs from './labs/labs'
 
 function App() {
   return (
    
-    <div>
+    <div style={{paddingLeft: 10}}>
         <h1>
         Welcome to Web Dev!!   
         </h1>

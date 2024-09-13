@@ -1,10 +1,29 @@
+import Headingtag from "../Tags/headingtag";
+import Paragraphtag from "../Tags/paragraphtag";
+import Listtag from "../Tags/listtag";
+import Table from "../Other/table";
+import Forms from "../Other/forms";
+import Textbox from "../Other/textbox";
+import Button from "../Other/button";
+import Fileupload from "../Other/fileupload";
+import Radiobutton from "../Other/radiobutton";
+import Checkboxes from "../Other/checkboxes";
+import Dropdowns from "../Other/dropdowns";
+
 export default function lab1() {
     return (
         <div>
-            <h2>Lab 1</h2>
-            <h3>Exercise 1.1</h3>
-            <h3>Exercise 1.2</h3>
-            <h3>Exercise 1.3</h3>
-        </div>
+            <Headingtag/>
+            <Paragraphtag/>
+            <Listtag/>
+            <Table/>
+            <Forms/>
+            <Textbox/>
+            <Button/>
+            <Fileupload/>
+            <Radiobutton/>
+            <Checkboxes/>
+            <Dropdowns/>
+        </div>        
     );
 }

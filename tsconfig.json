@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "hello.js"  ]
+, "hello.js", "src/Images/images.tsx"  ]
 }

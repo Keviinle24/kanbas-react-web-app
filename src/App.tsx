@@ -1,6 +1,6 @@
 
 // import './App.css';
-import Labs from './labs/labs'
+import Labs from './labs'
 import {HashRouter, Route, Routes, Navigate} from "react-router-dom"
 import Kanbas from './Kanbas';
 

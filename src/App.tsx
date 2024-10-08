@@ -17,7 +17,6 @@ function App() {
           <Route path="/Labs/*" element={<Labs />} />
           <Route path="/Kanbas/*" element={<Kanbas />} />
         </Routes>
-
         </div>
         </HashRouter>
   );

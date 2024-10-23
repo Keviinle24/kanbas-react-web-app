@@ -1,0 +1,6 @@
+[
+    { "_id": "123", "firstName": "John", "lastName": "Doe", "loginId": "jdoe", "section": "A", "role": "Student", "lastActivity": "2024-10-20", "totalActivity": 10 },
+    { "_id": "234", "firstName": "Jane", "lastName": "Doe", "loginId": "jdoe2", "section": "B", "role": "Student", "lastActivity": "2024-10-18", "totalActivity": 5 },
+    { "_id": "345", "firstName": "Jim", "lastName": "Beam", "loginId": "jbeam", "section": "C", "role": "Teaching Assistant", "lastActivity": "2024-10-15", "totalActivity": 15 }
+  ]
+  

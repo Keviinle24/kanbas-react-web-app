@@ -1,8 +1,9 @@
 import Lab1 from "./lab1";
 import { Route, Routes, Navigate } from "react-router";
 import TOC from "../anchors/toc";
-import Lab2 from "./lab2";
-import Lab3 from "./lab3";
+import Lab2 from "./Lab2/index";
+import Lab3 from "./Lab3/index";
+
 export default function Labs() {
   return (
     
@@ -14,7 +15,8 @@ export default function Labs() {
         <Route path="/" element={<Navigate to="Lab1" />} />
         <Route path="Lab1" element={<Lab1 />} />
         <Route path="Lab2" element={<Lab2 />} />
-        <Route path="Lab3" element={<Lab3 />} />
+        <Route path="Lab3/*" element={<Lab3 />} />
+
   
       </Routes>
     </div>

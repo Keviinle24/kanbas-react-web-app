@@ -1,0 +1,6 @@
+[
+    { "_id": "1", "course": "RS101", "title": "Assignment 1", "description": "Description for assignment 1", "points": 100, "dueDate": "2024-12-01", "availableDate": "2024-11-01" },
+    { "_id": "2", "course": "RS101", "title": "Assignment 2", "description": "Description for assignment 2", "points": 100, "dueDate": "2024-12-15", "availableDate": "2024-11-15" },
+    { "_id": "3", "course": "RS102", "title": "Assignment 1", "description": "Description for assignment 1", "points": 100, "dueDate": "2024-12-01", "availableDate": "2024-11-01" }
+  ]
+  

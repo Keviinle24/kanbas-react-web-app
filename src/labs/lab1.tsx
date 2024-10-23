@@ -33,7 +33,10 @@ export default function lab1() {
             <Otherfields/>
             <Fieldtypes/>
             <Anchors/>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7CZTLogln34" title="YouTube video player" ></iframe> 
             <Toc/>
+
+
         </div>        
     );
 }

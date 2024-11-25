@@ -128,78 +128,74 @@ export default function Dashboard({
 
       <h2>Published Courses ({courses.length})</h2>
       <div className="row row-cols-1 row-cols-md-3 g-4">
-        {courses
-          .filter((course) =>
-            showEnrollments ? enrollmentStatus[course._id] : true
-          )
-          .map((course) => (
-            <div key={course._id} className="col">
-              <div className="card h-100">
-                <img
-                  src={course.imageURL}
-                  className="card-img-top"
-                  alt={course.name}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{course.name}</h5>
-                  <p className="card-text" style={{ maxHeight: "100px", overflow: "hidden" }}>
-                    {course.description}
-                  </p>
+        {courses.map((course) => (
+          <div key={course._id} className="col">
+            <div className="card h-100">
+              <img
+                src={course.imageURL}
+                className="card-img-top"
+                alt={course.name}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{course.name}</h5>
+                <p className="card-text" style={{ maxHeight: "100px", overflow: "hidden" }}>
+                  {course.description}
+                </p>
 
+                <button
+                  onClick={() => handleGo(course._id)}
+                  className="btn btn-primary"
+                >
+                  Go
+                </button>
+
+                {currentUser.role === "STUDENT" && (
+                  <>
+                    {enrollmentStatus[course._id] ? (
+                      <button
+                        onClick={() => handleUnenroll(course._id)}
+                        className="btn btn-danger float-end ms-2"
+                      >
+                        Unenroll
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleEnroll(course._id)}
+                        className="btn btn-success float-end ms-2"
+                      >
+                        Enroll
+                      </button>
+                    )}
+                  </>
+                )}
+
+                <ProtectedContent>
                   <button
-                    onClick={() => handleGo(course._id)}
-                    className="btn btn-primary"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      deleteCourse(course._id);
+                    }}
+                    className="btn btn-danger float-end ms-2"
                   >
-                    Go
+                    Delete
                   </button>
+                </ProtectedContent>
 
-                  {currentUser.role === "STUDENT" && (
-                    <>
-                      {enrollmentStatus[course._id] ? (
-                        <button
-                          onClick={() => handleUnenroll(course._id)}
-                          className="btn btn-danger float-end ms-2"
-                        >
-                          Unenroll
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => handleEnroll(course._id)}
-                          className="btn btn-success float-end ms-2"
-                        >
-                          Enroll
-                        </button>
-                      )}
-                    </>
-                  )}
-
-                  <ProtectedContent>
-                    <button
-                      onClick={(event) => {
-                        event.preventDefault();
-                        deleteCourse(course._id);
-                      }}
-                      className="btn btn-danger float-end ms-2"
-                    >
-                      Delete
-                    </button>
-                  </ProtectedContent>
-
-                  <ProtectedContent>
-                    <button
-                      onClick={(event) => {
-                        event.preventDefault();
-                        setCourse(course);
-                      }}
-                      className="btn btn-warning float-end"
-                    >
-                      Edit
-                    </button>
-                  </ProtectedContent>
-                </div>
+                <ProtectedContent>
+                  <button
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setCourse(course);
+                    }}
+                    className="btn btn-warning float-end"
+                  >
+                    Edit
+                  </button>
+                </ProtectedContent>
               </div>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
   );

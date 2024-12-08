@@ -2,15 +2,16 @@
 
 import { Link, useLocation, useParams } from "react-router-dom";
 import { courses } from "../Database";
-
+import { useSelector } from "react-redux";
 export default function CoursesNavigation() {
 
     const { pathname } = useLocation();
 
     const { cid } = useParams();
     const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
+    const active = (path: string) => (pathname.includes(path) ? "active" : "");
 
-    const course = courses.find((course) => course._id === cid);
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
 
         return (
             <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
@@ -23,7 +24,9 @@ export default function CoursesNavigation() {
                             ${pathname.includes(link) ? "active text-dark" : "text-danger"}`}>
                         {link}
                     </Link>
-                ))}
+                ))}  {currentUser && currentUser.role === "ADMIN" && (
+                    <Link to={`/Kanbas/Account/Users`} className={`list-group-item ${active("Users")}`}> Users </Link> )}
+             
         </div> 
     );
 }

@@ -13,6 +13,9 @@ export default function Dashboard({
   addNewCourse,
   deleteCourse,
   updateCourse,
+  enrolling, 
+  setEnrolling,  
+  updateEnrollment 
 }: {
   courses: any[];
   course: any;
@@ -20,6 +23,9 @@ export default function Dashboard({
   addNewCourse: () => void;
   deleteCourse: (course: any) => void;
   updateCourse: () => void;
+  enrolling: boolean;  
+  setEnrolling: (enrolling: boolean) => void; 
+  updateEnrollment: (courseId: string, enrolled: boolean) => void;
 }) {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const dispatch = useDispatch();
@@ -36,6 +42,10 @@ export default function Dashboard({
       setEnrollmentStatus(storedStatus);
     }
   }, [currentUser]);
+  
+  const filteredCourses = enrolling
+  ? courses.filter((course) => enrollmentStatus[course._id])
+  : courses;
 
   const toggleEnrollments = () => {
     setShowEnrollments((prev) => !prev);
@@ -80,16 +90,11 @@ export default function Dashboard({
   return (
     <div id="dashboard-container" className="container py-4">
       <div className="row justify-content-between align-items-center">
-        <h1 className="col-auto mb-0">Dashboard</h1>
+        <h1 className=" ">Dashboard        <button onClick={() => setEnrolling(!enrolling)} className="float-end btn btn-primary" >
+          {enrolling ?      "View Enrolled Courses" : "View All Courses"}
+        </button></h1>
 
-        {currentUser.role === "STUDENT" && (
-          <button
-            className="btn btn-outline-primary col-auto"
-            onClick={toggleEnrollments}
-          >
-            {showEnrollments ? "View All Courses" : "View Enrolled Courses"}
-          </button>
-        )}
+      
       </div>
       <hr />
 
@@ -137,7 +142,7 @@ export default function Dashboard({
                 alt={course.name}
               />
               <div className="card-body">
-                <h5 className="card-title">{course.name}</h5>
+                <h5 className="card-title">     {course.name}</h5>
                 <p className="card-text" style={{ maxHeight: "100px", overflow: "hidden" }}>
                   {course.description}
                 </p>

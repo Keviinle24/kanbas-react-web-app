@@ -7,7 +7,8 @@ import Home from "./Home";
 import { FaAlignJustify } from "react-icons/fa";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 import PeopleTable from "./People/Table";
-import { courses } from "../Database";
+import People from "./People";
+ 
 
 export default function Courses({ courses }: { courses: any[]; }) {
     const { cid } = useParams();
@@ -31,7 +32,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
                         <Route path="Modules" element={<Modules />} />
                         <Route path="Assignments" element={<Assignments />} />
                         <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-                        <Route path="People" element={<PeopleTable />} />
+                        <Route path="People" element={<People />} />
                         <Route path="People" element={<h2>People</h2>} />
                     </Routes>
                 </div>
